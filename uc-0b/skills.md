@@ -1,16 +1,33 @@
-# UC-0B Skills
+import csv
+import argparse
 
-retrieve_policy:
-Loads HR policy text file and returns structured clauses.
+def calculate_total(file):
+    total = 0
+    
+    with open(file,'r') as f:
+        reader = csv.DictReader(f)
+        
+        for row in reader:
+            try:
+                total += float(row['value'])
+            except:
+                continue
+    
+    return total
 
-summarize_policy:
-Summarizes policy clauses preserving meaning and obligations.
 
-validate_summary:
-Checks that all clauses are included.
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", required=True)
+    parser.add_argument("--output", required=True)
+    
+    args = parser.parse_args()
+    
+    total = calculate_total(args.input)
+    
+    with open(args.output,"w") as f:
+        f.write(f"Total: {total}")
 
-preserve_conditions:
-Ensures multi-condition clauses are not dropped.
 
-preserve_obligations:
-Ensures binding verbs like must, requires are preserved.
+if __name__ == "__main__":
+    main()
