@@ -1,12 +1,17 @@
-"""
-UC-0C app.py — Starter file.
-Build this using the RICE + agents.md + skills.md + CRAFT workflow.
-See README.md for run command and expected behaviour.
-"""
-import argparse
+skills:
+- load_csv
+- validate_numbers
+- calculate_totals
+- handle_nulls
 
-def main():
-    raise NotImplementedError("Build this using your AI tool + RICE prompt")
+load_csv:
+Loads CSV file data
 
-if __name__ == "__main__":
-    main()
+validate_numbers:
+Validates numeric values
+
+calculate_totals:
+Calculates correct aggregation
+
+handle_nulls:
+Handles missing values properly
